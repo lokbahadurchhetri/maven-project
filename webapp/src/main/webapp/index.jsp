@@ -1,3 +1,1 @@
-Hello, world!
-Jenkins CICD is completed !!!
-More things to Explore .....!
+Hello, world code has been successfully deployed !!!
