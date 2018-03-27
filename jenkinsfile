@@ -4,8 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make' 
-                archiveArtifacts artifacts: '**/target/*.war', fingerprint: true 
+                sh 'mvn clean package'
+            }
+            post {
+                success {
+                    echo 'Now Archiving'				
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }					
             }
         }
     }
