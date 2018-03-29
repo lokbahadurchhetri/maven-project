@@ -1,1 +1,3 @@
-Hello, World pipeline as code succeded!!!
+Hello world !!!
+
+Pipeline as a code automation completed.
