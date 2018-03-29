@@ -12,11 +12,29 @@ pipeline {
                     archiveArtifacts artifacts: '**/target/*.war'
                 }					
             }
-	 }   
+	    }   
         stage ('Deploy-to-Staging') {
              steps {
                   build job:'deploytostagging' 
                 }
             }
-        }    
-    }
+	    stage ('Deploy to Production'){
+            steps{
+	            timeout(time:5, unit: 'DAYS'){
+		        input message:'Approve Production Deployment?'
+                   }
+
+	             build job: 'deploytoproduction'
+               }
+	        post {
+	           success {
+		           echo 'Code deployed to Production.'
+		         }
+
+         	   failure {
+		           echo 'Deployment failed.'
+		        }
+	        }
+	  }    
+     }
+  }
