@@ -1,1 +1,1 @@
-Hello, World Pipeline to Master succeded!!!
+Hello, World pipeline as code succeded!!!
